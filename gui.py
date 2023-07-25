@@ -1,2 +1,2 @@
 def greetings():
-    print("Greetings! Reading logs!")
+    print("Greetings! Start reading logs!")
