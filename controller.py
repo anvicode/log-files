@@ -1,20 +1,19 @@
 import bl_upper
 
 
-def read():
-    return bl_upper.read_logs()
-
-
 def lifetime():
-    # res = bl_upper.info()
-    res = input(
-        "--> 1. Read\n--> 2. Filter\n--> 3. Search\n--> 4. Sort\n--> 0. Exit\n--> h. Info\n--> "
-    )
-
     while True:
-        if res == "0":
+        print("List of commands: ")
+        print("1 - read, 2 - filter, 3 - search, 4 - sort, q - quit")
+        res = input("Enter command: ")
+        if res == "q":
             break
         if res == "1":
-            read()
-        elif res == "h":
-            bl_upper.info()
+            bl_upper.read_logs()
+        elif res == "2":
+            bl_upper.filter_logs()
+        elif res == "3":
+            pass
+        elif res == "4":
+            pass
+        # print(res)

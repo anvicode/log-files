@@ -1,17 +1,48 @@
-import gui
+def input_file_name():
+    res = input("Enter file name: ")
+    return res
 
 
 def read_logs():
-    with open(gui.file_name(), "r") as f:
+    log_file = input_file_name()
+    with open(log_file, "r") as f:
         logs = "".join([f.read()]).split("\n")
+        print(f"{log_file} logs: ")
         for i in logs:
-            print(i)
+            print("\t", i)
 
 
-def info():
-    """
-    Prompts the user to input a choice from a menu and returns the input.
-    """
-    return input(
-        "--> 1. Read\n--> 2. Filter\n--> 3. Search\n--> 4. Sort\n--> 0. Exit\n--> h. Info\n--> "
-    )
+def filter_logs():
+    # log_file = input_file_name()
+    log_file = "log_file.log"
+    with open(log_file, "r") as f:
+        logs = "".join([f.read()]).split("\n")
+        print(f"{log_file} logs: ")
+        # print(logs)
+        INFO = [i for i in logs if "INFO" in i]
+        WARNING = [i for i in logs if "WARNING" in i]
+        ERROR = [i for i in logs if "ERROR" in i]
+        print("Enter filter:")
+        res = input("i - INFO, w - WARNING, e - ERROR: ")
+        if res == "i":
+            for i in INFO:
+                print("\t", i)
+        elif res == "w":
+            for i in WARNING:
+                print("\t", i)
+        elif res == "e":
+            for i in ERROR:
+                print("\t", i)
+        # print(INFO)
+        # print(WARNING)
+        # print(ERROR)
+        # for i in logs:
+        #     print("\t", i)
+
+
+def search_logs():
+    pass
+
+
+def sort_logs():
+    pass
