@@ -1,9 +1,9 @@
 import bl_upper
 
 
-def bl_upper_read_all_logs():
-    bl_upper.read_all_logs()
-
-
-def bl_upper_read_line():
-    bl_upper.read_line()
+def bl_upper_lifetime():
+    while True:
+        command = bl_upper.lifetime()
+        bl_upper.lifetime()
+        if command == "0":
+            break

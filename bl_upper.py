@@ -1,13 +1,19 @@
+from bl_lower import read_logs
+from gui import get_user_command
+
+
+def lifetime():
+    command = get_user_command()
+    while True:
+        if command == "0":
+            return command
+        if command == "1":
+            # logs = read_logs
+            return read_logs()
+        else:
+            print("Unknown command")
+            command = get_user_command()
+
+
 def read_all_logs():
-    with open("log_file.log", "r") as f:
-        print(f.read())
-
-
-def read_line():
-    with open("log_file.log", "r") as f:
-        file = "".join([f.read()])
-        file = file.split("\n")
-        # file = "\n".join(file)
-        for i in range(len(file)):
-            print(file[i])
-        # print(f.readline())
+    read_logs()
