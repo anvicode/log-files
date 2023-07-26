@@ -41,7 +41,14 @@ def filter_logs():
 
 
 def search_logs():
-    pass
+    log_file = "log_file.log"
+    with open(log_file, "r") as f:
+        logs = "".join([f.read()]).split("\n")
+        print(f"{log_file} logs: ")
+        res = input("Enter search: ").lower()
+        for i in logs:
+            if res in i.lower():
+                print("\t", i)
 
 
 def sort_logs():

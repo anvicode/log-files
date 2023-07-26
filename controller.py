@@ -13,7 +13,7 @@ def lifetime():
         elif res == "2":
             bl_upper.filter_logs()
         elif res == "3":
-            pass
+            bl_upper.search_logs()
         elif res == "4":
             pass
         # print(res)
