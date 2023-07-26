@@ -1,7 +1,7 @@
 def greetings():
-    print("Greetings! Program start reading logs!")
+    print("Greetings! I am ready to read logs for you!")
 
 
-def get_user_command():
-    user_command = input("Input your command: ")
-    return user_command
+def file_name():
+    # return "log_file.log"
+    return input("Enter file name: ")

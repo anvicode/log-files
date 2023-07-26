@@ -4,9 +4,7 @@ import gui
 
 def main():
     gui.greetings()
-    controller.bl_upper_lifetime()
-
-    # функция с выводом в консоль информации о командах
+    controller.lifetime()
 
 
 if __name__ == "__main__":

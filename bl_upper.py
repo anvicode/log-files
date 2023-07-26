@@ -1,19 +1,17 @@
-from bl_lower import read_logs
-from gui import get_user_command
+import gui
 
 
-def lifetime():
-    command = get_user_command()
-    while True:
-        if command == "0":
-            return command
-        if command == "1":
-            # logs = read_logs
-            return read_logs()
-        else:
-            print("Unknown command")
-            command = get_user_command()
+def read_logs():
+    with open(gui.file_name(), "r") as f:
+        logs = "".join([f.read()]).split("\n")
+        for i in logs:
+            print(i)
 
 
-def read_all_logs():
-    read_logs()
+def info():
+    """
+    Prompts the user to input a choice from a menu and returns the input.
+    """
+    return input(
+        "--> 1. Read\n--> 2. Filter\n--> 3. Search\n--> 4. Sort\n--> 0. Exit\n--> h. Info\n--> "
+    )
