@@ -4,7 +4,8 @@ def input_file_name():
 
 
 def read_logs():
-    log_file = input_file_name()
+    # log_file = input_file_name()
+    log_file = "log_file.log"
     with open(log_file, "r") as f:
         logs = "".join([f.read()]).split("\n")
         print(f"{log_file} logs: ")
@@ -52,4 +53,16 @@ def search_logs():
 
 
 def sort_logs():
-    pass
+    log_file = "log_file.log"
+    with open(log_file, "r") as f:
+        logs_ascending = sorted("".join([f.read()]).split("\n"))
+        logs_descending = sorted(logs_ascending, reverse=True)
+        print("Enter sort: ")
+        res = input("a - ascending, d - descending: ")
+        print(f"{log_file} logs: ")
+        if res == "a":
+            for i in logs_ascending:
+                print("\t", i)
+        elif res == "d":
+            for i in logs_descending:
+                print("\t", i)

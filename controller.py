@@ -15,5 +15,5 @@ def lifetime():
         elif res == "3":
             bl_upper.search_logs()
         elif res == "4":
-            pass
+            bl_upper.sort_logs()
         # print(res)
