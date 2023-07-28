@@ -1,14 +1,16 @@
 import bl_upper
+import gui
 
 
 def lifetime():
     while True:
-        print("List of commands: ")
-        print("1 - read, 2 - filter, 3 - search, 4 - sort, q - quit")
-        print("0 - reset filters")
-        res = input("Enter command: ")
+        res = bl_upper.commands()
         if res == "q":
-            break
+            quit = gui.bye()
+            if quit == "y":
+                break
+            else:
+                continue
         if res == "1":
             bl_upper.read_logs(bl_upper.input_file_name())
         if res == "2":
