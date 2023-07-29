@@ -11,13 +11,13 @@ def lifetime():
                 break
             else:
                 continue
-        if res == "1":
+        elif res == "1":
             bl_upper.read_logs(bl_upper.input_file_name())
-        if res == "2":
+        elif res == "2":
             bl_upper.filter_logs(bl_upper.logs)
-        if res == "3":
+        elif res == "3":
             bl_upper.search_logs(bl_upper.logs)
-        if res == "4":
+        elif res == "4":
             bl_upper.sort_logs(bl_upper.logs)
-        if res == "0":
+        elif res == "0":
             bl_upper.reset_filters(bl_upper.logs)

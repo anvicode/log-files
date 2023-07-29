@@ -26,7 +26,11 @@ def commands():
         out_blue("\t0 - reset filters\n"),
     )
     res = input("Enter command: ")
-    return res
+    if res not in ["1", "2", "3", "4", "q", "0"]:
+        print()
+        print(out_red_bold("ERROR! Command not found"), "\n")
+    else:
+        return res
 
 
 logs = []
@@ -34,26 +38,29 @@ logs = []
 
 def read_logs(file_name):
     log_file = file_name
-    with open(log_file, "r") as f:
-        global log
-        log = "".join([f.read()]).split("\n")
-        # print(out_blue_bg(f"I'm reading logs from {out_italics(log_file)} for you: "))
-        print(
-            out_blue_bg(
-                f"I'm reading logs from {out_italics(log_file)}{out_blue_bg(' ')}{out_blue_bg('for you: ')}"
+    try:
+        with open(log_file, "r") as f:
+            global log
+            log = "".join([f.read()]).split("\n")
+            # print(out_blue_bg(f"I'm reading logs from {out_italics(log_file)} for you: "))
+            print(
+                out_blue_bg(
+                    f"I'm reading logs from {out_italics(log_file)}{out_blue_bg(' ')}{out_blue_bg('for you: ')}"
+                )
             )
-        )
-        print()
-        for i in log:
-            print("\t", i)
-            logs.append(i)
-        print()
+            print()
+            for i in log:
+                print("\t", i)
+                logs.append(i)
+            print()
+    except FileNotFoundError:
+        print(out_red_bold("ERROR! File not found"), "\n")
 
 
 def filter_logs(logg):
     if logg == []:
+        print()
         return print(out_red_bold("ERROR! Read log file first"), "\n")
-        # return print("ERROR! Read log file first")
     INFO = [i for i in logg if "INFO" in i]
     WARNING = [i for i in logg if "WARNING" in i]
     ERROR = [i for i in logg if "ERROR" in i]
@@ -83,6 +90,7 @@ def filter_logs(logg):
 
 def search_logs(logg):
     if logg == []:
+        print()
         return print(out_red_bold("ERROR! Read log file first"), "\n")
     res = input("Enter search: ")
     logs = logg.copy()
@@ -99,6 +107,7 @@ def search_logs(logg):
 
 def sort_logs(logg):
     if logg == []:
+        print()
         return print(out_red_bold("ERROR! Read log file first"), "\n")
     logs_ascending = sorted(logg)
     logs_descending = sorted(logg, reverse=True)
@@ -121,6 +130,7 @@ def sort_logs(logg):
 
 def reset_filters(logg):
     if logg == []:
+        print()
         return print(out_red_bold("ERROR! Read log file first"), "\n")
     logg.clear()
     print()
