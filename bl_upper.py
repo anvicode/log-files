@@ -1,3 +1,9 @@
+"""
+This module contains functions that perform various operations on log
+files, such as reading, filtering, searching, and sorting logs.
+"""
+
+
 from bl_lower import (
     out_blue,
     out_blue_bg,
@@ -10,12 +16,18 @@ from bl_lower import (
 
 
 def input_file_name():
+    """
+    Takes user input for a file name and returns the input as a string.
+    """
     res = input("Enter file name: ")
     print()
     return res
 
 
 def commands():
+    """
+    Print a list of commands and prompt the user for input.
+    """
     print(out_blue_bg("List of commands:"), "\n")
     print(
         out_blue("\t1 - read"),
@@ -37,12 +49,14 @@ logs = []
 
 
 def read_logs(file_name):
+    """
+    Reads logs from the specified file and stores them in a global variable.
+    """
     log_file = file_name
     try:
         with open(log_file, "r") as f:
             global log
             log = "".join([f.read()]).split("\n")
-            # print(out_blue_bg(f"I'm reading logs from {out_italics(log_file)} for you: "))
             print(
                 out_blue_bg(
                     f"I'm reading logs from {out_italics(log_file)}{out_blue_bg(' ')}{out_blue_bg('for you: ')}"
@@ -58,6 +72,9 @@ def read_logs(file_name):
 
 
 def filter_logs(logg):
+    """
+    Filter the logs based on the user's input.
+    """
     if logg == []:
         print()
         return print(out_red_bold("ERROR! Read log file first"), "\n")
@@ -89,6 +106,9 @@ def filter_logs(logg):
 
 
 def search_logs(logg):
+    """
+    Searches for a given query in the log files.
+    """
     if logg == []:
         print()
         return print(out_red_bold("ERROR! Read log file first"), "\n")
@@ -106,6 +126,9 @@ def search_logs(logg):
 
 
 def sort_logs(logg):
+    """
+    Sorts the logs in either ascending or descending order.
+    """
     if logg == []:
         print()
         return print(out_red_bold("ERROR! Read log file first"), "\n")
@@ -129,6 +152,9 @@ def sort_logs(logg):
 
 
 def reset_filters(logg):
+    """
+    Resets the filters of the given logg.
+    """
     if logg == []:
         print()
         return print(out_red_bold("ERROR! Read log file first"), "\n")

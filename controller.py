@@ -1,8 +1,18 @@
+"""
+This module contains the main controller function lifetime() 
+which executes the main loop of the program.
+"""
 import bl_upper
 import gui
 
 
 def lifetime():
+    """
+    Executes the main loop of the program.
+
+    This function continuously prompts the user for input and executes the
+    corresponding functionality based on the input.
+    """
     while True:
         res = bl_upper.commands()
         if res == "q":
